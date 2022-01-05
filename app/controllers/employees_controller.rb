@@ -1,4 +1,4 @@
-class EmployeesController < ApplicationController
+    class EmployeesController < ApplicationController
   def new
     @division = Division.find(params[:division_id])
     @employee = @division.employees.new
@@ -31,8 +31,8 @@ class EmployeesController < ApplicationController
 
   def update
     @employee = Employee.find(params[:id])
-    select_project=Project.name("lets get jiggy wit it")
-    
+    # select_project=Project.name("lets get jiggy wit it")
+
     if @employee.update(employee_params)
       flash[:notice] = "Employee successfully updated!"
       redirect_to division_path(@employee.division)
