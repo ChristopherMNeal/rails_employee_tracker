@@ -1,5 +1,8 @@
 class ProjectsController < ApplicationController
-
+  def index
+    @projects = Project.all
+    render :index
+  end
   def new 
     @project = Project.new
     render :new
@@ -29,8 +32,8 @@ class ProjectsController < ApplicationController
   def update
     @employee = Employee.find(params[:employee_id])
     @project = Project.find(params[:id]) ### Need a way to get the project id
-    if @project
-      # @employee.projects << @project 
+    if @project.update
+      @project.employees << @employee
       flash[:notice] = "Project assign success!"
       redirect_to projects_path
     else

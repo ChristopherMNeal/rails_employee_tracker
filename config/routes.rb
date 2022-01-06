@@ -3,13 +3,7 @@ Rails.application.routes.draw do
   resources :divisions do
     resources :employees
   end
-  resources :projects do
-    resources :employees
-  end
-  resources :employees do
-    resources :projects
-  end
-  # resources :projects
-  # resources :employees
+  resources :projects
+  # resources :employee_projects
 end
 

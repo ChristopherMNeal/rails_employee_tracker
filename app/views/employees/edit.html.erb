@@ -1,15 +1,4 @@
 <h1>Edit <%= @employee.name %></h1>
 
-<% if @employee.errors.any? %>
-  <h3>Please fix these errors:</h3>
-  <ul>
-    <% @employee.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-<%= form_for [@division, @employee] do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <p><%= f.submit %></p>
-<% end %>
+<%= render "layouts/employee_form" %>
+
