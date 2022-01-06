@@ -1,4 +1,19 @@
 <h1><%= @project.name %></h1>
+
+<% if @project.employees.any? %>
+  <h4>Here are the employees for this project:</h4>
+
+  <% @project.employees.each do |employee| %>
+    <ul>
+      <li>
+        <%= employee.name %>
+      </li>
+    </ul>
+  <% end %>
+<% else %>
+  <p>No employees are listed for this project.</p>
+<% end %>
+
 <p><%= link_to "Edit", edit_project_path(@project) %></p>
 <p><%= link_to "Delete project", project_path(@project),
                         :data => {:confirm => "Are you sure?",

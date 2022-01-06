@@ -19,27 +19,33 @@ class ProjectsController < ApplicationController
     end
   end
 
-  def edit
-    @project = Project.find(params[:id])
-    render :edit
-  end
 
   def show
     @project = Project.find(params[:id])
     render :show
   end
 
+  def edit
+    @project = Project.find(params[:id])
+    render :edit
+  end
+
+#project_employee_ids
+
   def update
-    @employee = Employee.find(params[:employee_id])
-    @project = Project.find(params[:id]) ### Need a way to get the project id
-    if @project.update
-      @project.employees << @employee
-      flash[:notice] = "Project assign success!"
-      redirect_to projects_path
-    else
-      flash[:alert] = "There was an error in assigning your project."
-      render :edit
-    end
+    emp_id = params[:project]
+    @employee = Employee.find(emp_id[:employee_ids])
+    @project = Project.find(params[:id])
+    # binding.pry
+    @project.employees << @employee
+    # if @project
+    #   flash[:notice] = "Project assign success!"
+    #   redirect_to projects_path
+    # else
+    #   flash[:alert] = "There was an error in assigning your project."
+    #   render :edit
+    # end
+    render :show
   end
 
   def destroy
@@ -50,9 +56,8 @@ class ProjectsController < ApplicationController
 
   private
     def project_params
-      params.require(:project).permit(:name)
+      params.require(:project).permit(:id, :name, employee_ids:[])
     end
-
   end
 
 
