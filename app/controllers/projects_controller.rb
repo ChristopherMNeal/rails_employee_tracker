@@ -36,16 +36,15 @@ class ProjectsController < ApplicationController
     emp_id = params[:project]
     @employee = Employee.find(emp_id[:employee_ids])
     @project = Project.find(params[:id])
-    # binding.pry
-    @project.employees << @employee
-    # if @project
-    #   flash[:notice] = "Project assign success!"
-    #   redirect_to projects_path
-    # else
-    #   flash[:alert] = "There was an error in assigning your project."
-    #   render :edit
-    # end
-    render :show
+    if EmployeeProject.check(emp_id[:employee_ids],params[:id]).length == 0
+      @project.employees << @employee
+      flash[:notice] = "Project assign success!"
+      p "Added employee to project"
+      redirect_to project_path
+    else
+      flash[:alert] = "There was an error in assigning your project."
+      render :edit
+    end
   end
 
   def destroy
