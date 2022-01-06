@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'rails_helper'
 
 describe "the edit a project process" do
   it "edits a project" do
