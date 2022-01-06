@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "the add an division process" do
+describe "the add a division process" do
   it "adds a new division" do
     visit divisions_path
     click_link 'Add a division'

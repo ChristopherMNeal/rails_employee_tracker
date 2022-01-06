@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
     if EmployeeProject.check(emp_id[:employee_ids],params[:id]).length == 0
       @project.employees << @employee
       flash[:notice] = "Project assign success!"
-      p "Added employee to project"
+      # p "Added employee to project"
       redirect_to project_path
     else
       flash[:alert] = "There was an error in assigning your project."
