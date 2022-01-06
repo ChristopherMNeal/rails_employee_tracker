@@ -1,8 +1,10 @@
 <h1>Edit Project</h1>
-<h2><%= @project.name %>
-<% form for @project do |f| %>
-  <%= f.label :name, "Project Name:" %>
-  <%= f.text_field :name %>
-  <%= f.select :temperature, [['Hot','hot'],['Medium','medium'],['Cold','cold']] %>
+<h2><%= @project.name %></h2>
+
+<%= form_for [@employee, @project] do |f| %>
+  <%= f.label :name, "Add Employee to Project:" %>
+  <%= f.select :name, Employee.arr_emp %>
   <%= f.submit %>
 <% end %>
+
+
