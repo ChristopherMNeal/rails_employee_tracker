@@ -6,7 +6,8 @@
   <% @project.employees.each do |employee| %>
     <ul>
       <li>
-        <%= link_to employee.name, division_employee_path(Division.find(employee.division_id), employee) %>
+        <%= link_to employee.name, division_employee_path(Division.find(employee.division_id), employee) %> 
+        <%= link_to "Edit association", employee_project_path(EmployeeProject.check(employee.id, @project.id).first) %>
       </li>
     </ul>
   <% end %>

@@ -1,0 +1,8 @@
+<%= @employee.name %>
+<%= @project.name %>
+
+<p><%= link_to "Remove employee from project", employee_project_path(@employee_project),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p>
+
+                        <p><%= link_to "Return to projects", projects_path %></p>

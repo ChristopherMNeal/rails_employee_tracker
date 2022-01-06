@@ -30,7 +30,6 @@ class ProjectsController < ApplicationController
     render :edit
   end
 
-#project_employee_ids
 
   def update
     emp_id = params[:project]
