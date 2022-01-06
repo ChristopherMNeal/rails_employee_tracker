@@ -42,8 +42,8 @@ _(Note: Ruby gem dependencies will be installed automatically by Bundler.)_
 
 * Clone the GitHub repository: [https://github.com/christophermneal/rails_employee_tracker](https://github.com/christophermneal/rails_employee_tracker)
 * From the main project directory, enter `bundle install` in the terminal to populate gems.
-* To create a database, type in your terminal:  
-      `rake db:seed`
+* To create a database, type in your terminal: 
+      `rake db:setup`
 * Enter `rspec` into the terminal to confirm passing of all tests.
 * Run `rails s` to start the Rails server.
 * Open browswer and enter the url http://localhost:3000/ unless otherwise prompted in the terminal.
