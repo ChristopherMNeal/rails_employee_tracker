@@ -3,10 +3,10 @@
 <% if @employee.projects.any? %>
   <h4>Here are the projects for this employee:</h4>
 
-  <% @employee.projects.each do |employee| %>
+  <% @employee.projects.each do |project| %>
     <ul>
       <li>
-        <%= link_to employee.name, employee_projects_path(@project, employee) %>
+        <%= link_to project.name, project_path(project) %>
       </li>
     </ul>
   <% end %>
@@ -14,10 +14,9 @@
   <p>No projects are listed for this employee.</p>
 <% end %>
 
-<p><%= link_to "Add a project", new_division_employee_path(@employee) %></p>
 <p><%= link_to "Edit", edit_division_employee_path(@division, @employee) %></p>
 <p><%= link_to "Delete employee", division_employee_path(@employee),
                         :data => {:confirm => "Are you sure?",
                                        :method => "delete"} %></p>
 
-                        <p><%= link_to "Return to division", division_path %></p>
+                        <p><%= link_to "Return to division", division_path(@division) %></p>
